@@ -19,7 +19,7 @@ on:
       - name: Checkout GradlePlugin
         uses: actions/checkout@v2
           with:
-             repository: korlibs/korlibs_versions
+            repository: korlibs/korlibs_versions
       - name: Bump version number
         run: |
           sed -i 's/klockVersion==.*/klockVersion=='"$KLOCK_VERSION_NUMBER"'/g' versions.ver
