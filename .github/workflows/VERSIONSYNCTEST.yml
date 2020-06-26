@@ -18,9 +18,9 @@ on:
             echo "::set-env name=KLOCK_VERSION_NUMBER::KLOCK_VERSION_NUMBER
 
       - name: Checkout Korlibs version repo
-          uses: actions/checkout@v2
-          with:
-            repository: korlibs/korlibs_versions
+        uses: actions/checkout@v2
+        with:
+          repository: korlibs/korlibs_versions
 
       - name: Bump version number
         run: |
