@@ -25,7 +25,7 @@ jobs:
 
       - name: Bump version number
         run: |
-          sed -i 's/klockVersion==.*/klockVersion=='"$KLOCK_VERSION_NUMBER"'/g' versions.ver
+          sed -i 's/klockVersion=.*/klockVersion='"$KLOCK_VERSION_NUMBER"'/g' versions.ver
           git config --global user.email korgeVersionBot@korge.org
           git config --global user.name korgeVersionBot
           git add versions.ver
