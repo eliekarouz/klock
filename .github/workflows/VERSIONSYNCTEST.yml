@@ -16,7 +16,7 @@ jobs:
       - name: Export Number
         run: |
             export KLOCK_VERSION_NUMBER=$(awk -F '=' '/version=/{print $2}' gradle.properties)
-            echo "::set-env name=KLOCK_VERSION_NUMBER::KLOCK_VERSION_NUMBER
+            echo "::set-env name=KLOCK_VERSION_NUMBER::KLOCK_VERSION_NUMBER"
 
       - name: Checkout Korlibs version repo
         uses: actions/checkout@v2
