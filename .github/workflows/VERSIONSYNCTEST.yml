@@ -1,0 +1,29 @@
+name: DEPLOY
+
+on:
+  push:
+    branches:
+      - 'versioningWorkflow/**'
+    tags-ignore:
+      - '*.*'
+
+  refreshVersionManagement:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull
+        uses: actions/checkout@v2
+      - name: Export Number
+        run: |
+            export KLOCK_VERSION_NUMBER=$(awk -F '=' '/version=/{print $2}' gradle.properties)
+            echo "::set-env name=KLOCK_VERSION_NUMBER::KLOCK_VERSION_NUMBER
+      - name: Checkout GradlePlugin
+        uses: actions/checkout@v2
+          with:
+          repository: korlibs/korlibs_versions
+      - name: Bump version number
+        run: |
+          sed -i 's/klockVersion==.*/klockVersion=='"$KLOCK_VERSION_NUMBER"'/g' versions.ver
+          git add versions.ver
+          git commit -m "Bumped klock version number to $KLOCK_VERSION_NUMBER"
+      - name: Create PR
+          uses: peter-evans/create-pull-request@v2
