@@ -34,4 +34,4 @@ jobs:
       - name: Create PR
         uses: peter-evans/create-pull-request@v2
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: c316c7ae63bbc99a6b616d2e369949a6bf8c267e
