@@ -21,7 +21,7 @@ jobs:
       - name: Checkout Korlibs version repo
         uses: actions/checkout@v2
         with:
-          repository: korlibs/korlibs_versions
+          repository: korlibs/korlibs-versions
 
       - name: Bump version number
         run: |
