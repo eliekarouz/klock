@@ -23,7 +23,7 @@ jobs:
         with:
           repository: korlibs/korlibs-versions
 
-      - name: Bump version number
+      - name: Bump version numbers
         run: |
           sed -i 's/klockVersion=.*/klockVersion='"$KLOCK_VERSION_NUMBER"'/g' versions.ver
           git config --global user.email korgeVersionBot@korge.org
